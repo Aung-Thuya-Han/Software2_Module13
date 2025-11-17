@@ -15,7 +15,7 @@ connection = mysql.connector.connect(
 def get_airport_info(icao):
     cursor = connection.cursor()
     sql = "SELECT name, municipality FROM airport WHERE ident = %s"
-    cursor.execute(sql, (icao.upper(),))
+    cursor.execute(sql, (icao,))
     result = cursor.fetchone()
 
     if result:
